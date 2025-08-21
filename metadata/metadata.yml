@@ -1,4 +1,17 @@
 metadata_version: 1
 name: depression-classifier
-title: Speech as a Biomarker for Supported Diagnosis of Major Depressive Disorder Using Self Supervised Representations
-Description: Statistical Analysis and Visualization Framework A comprehensive statistical analysis framework for depression classification research using pre-computed speech-derived features. This repository contains the complete statistical analysis pipeline, comparative evaluation tools, and publication-ready visualization code for research in speech-based depression detection. 
+description: 'Depression Classification: Statistical Analysis and Visualization Framework
+  A comprehensive statistical analysis framework for depression classification research
+  using pre-computed speech-derived features. This repository contains the complete
+  statistical analysis pipeline, comparative evaluation tools, and publication-ready
+  visualization code for research in speech-based depression detection.'
+authors:
+- name: Yunhan Lin
+  affiliations:
+  - name: Peking University Sixth Hospital
+- name: Biman Najika Liyanage
+  affiliations:
+  - name: Voice Health Tech
+corresponding_contributor:
+  name: Weihua Yue
+  email: dryue@bjmu.edu.cn
