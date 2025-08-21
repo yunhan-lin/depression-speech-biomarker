@@ -1,26 +1,26 @@
-# hash:sha256:ee6fcf020d08842be3699bedb35db559e6b92f5e9b5b338c182a1daf19dda2eb
+# hash:sha256:bb4aca81ade5c94f34f7ca1e738bae60a43d0eb0dfff200ebd3947c9e4998e96
 FROM registry.codeocean.com/codeocean/py-r:python3.12.8-R4.4.2-JupyterLab4.3.5-RStudiorstudio-server-2024.12.1-563-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN conda install -y \
+        pip \
+    && conda clean -ya
+
 RUN pip install -U --no-cache-dir \
-    matplotlib-pyplot \
+    matplotlib \
     numpy \
     pandas \
+    scikit-learn \
     scipy \
-    scipy-stats \
-    sklearn \
-    sklearn-metrics \
-    statsmodels-api
+    statsmodels
 
 RUN pip3 install -U --no-cache-dir \
-    matplotlib-pyplot \
+    matplotlib \
     numpy \
     pandas \
+    scikit-learn \
     scipy \
-    scipy-stats \
-    sklearn \
-    sklearn-metrics \
-    statsmodels-api
+    statsmodels
 
 RUN Rscript -e 'remotes::install_version("ggplot2")'
