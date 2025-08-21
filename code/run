@@ -16,5 +16,15 @@ jupyter nbconvert \
 # 	--ExecutePreprocessor.allow_errors=True \
 # 	--ExecutePreprocessor.timeout=-1 \
 # 	--FilesWriter.build_directory=../results \
-# 	--execute 'demographic characteristic of external.ipynb'
+# 	--execute distribution.ipynb
+# 
+# # The previous version of this file was commented-out and follows below:
+# #
+# # jupyter nbconvert \
+# # 	--to 'html' \
+# # 	--ExecutePreprocessor.allow_errors=True \
+# # 	--ExecutePreprocessor.timeout=-1 \
+# # 	--FilesWriter.build_directory=../results \
+# # 	--execute 'demographic characteristic of external.ipynb'
+# # 
 # 
