@@ -32,6 +32,43 @@
 			],
 			"options": {},
 			"pre_install_options": {}
+		},
+		"pip3": {
+			"packages": [
+				{
+					"name": "matplotlib-pyplot"
+				},
+				{
+					"name": "numpy"
+				},
+				{
+					"name": "pandas"
+				},
+				{
+					"name": "scipy"
+				},
+				{
+					"name": "scipy-stats"
+				},
+				{
+					"name": "sklearn"
+				},
+				{
+					"name": "sklearn-metrics"
+				},
+				{
+					"name": "statsmodels-api"
+				}
+			],
+			"options": {},
+			"pre_install_options": {}
+		},
+		"rcran": {
+			"packages": [
+				{
+					"name": "ggplot2"
+				}
+			]
 		}
 	}
 }
