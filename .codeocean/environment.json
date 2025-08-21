@@ -1,5 +1,37 @@
 {
 	"version": 1,
 	"base_image": "registry.codeocean.com/codeocean/py-r:python3.12.8-R4.4.2-JupyterLab4.3.5-RStudiorstudio-server-2024.12.1-563-ubuntu22.04",
-	"options": {}
+	"options": {},
+	"installers": {
+		"pip": {
+			"packages": [
+				{
+					"name": "matplotlib-pyplot"
+				},
+				{
+					"name": "numpy"
+				},
+				{
+					"name": "pandas"
+				},
+				{
+					"name": "scipy"
+				},
+				{
+					"name": "scipy-stats"
+				},
+				{
+					"name": "sklearn"
+				},
+				{
+					"name": "sklearn-metrics"
+				},
+				{
+					"name": "statsmodels-api"
+				}
+			],
+			"options": {},
+			"pre_install_options": {}
+		}
+	}
 }
