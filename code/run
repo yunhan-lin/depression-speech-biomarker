@@ -2,7 +2,12 @@
 set -ex
 
 # This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
-Rscript delong_test.R "$@"
+jupyter nbconvert \
+	--to 'html' \
+	--ExecutePreprocessor.allow_errors=True \
+	--ExecutePreprocessor.timeout=-1 \
+	--FilesWriter.build_directory=../results \
+	--execute 'statistic analysis.ipynb'
 
 # The previous version of this file was commented-out and follows below:
 #
@@ -11,5 +16,70 @@ Rscript delong_test.R "$@"
 # 	--ExecutePreprocessor.allow_errors=True \
 # 	--ExecutePreprocessor.timeout=-1 \
 # 	--FilesWriter.build_directory=../results \
-# 	--execute 'statistic analysis.ipynb'
+# 	--execute feature_analysis.ipynb
+# 
+# # The previous version of this file was commented-out and follows below:
+# #
+# # jupyter nbconvert \
+# # 	--to 'html' \
+# # 	--ExecutePreprocessor.allow_errors=True \
+# # 	--ExecutePreprocessor.timeout=-1 \
+# # 	--FilesWriter.build_directory=../results \
+# # 	--execute feature_analysis.ipynb
+# # 
+# # # The previous version of this file was commented-out and follows below:
+# # #
+# # # jupyter nbconvert \
+# # # 	--to 'html' \
+# # # 	--ExecutePreprocessor.allow_errors=True \
+# # # 	--ExecutePreprocessor.timeout=-1 \
+# # # 	--FilesWriter.build_directory=../results \
+# # # 	--execute feature_analysis.ipynb
+# # # 
+# # # # The previous version of this file was commented-out and follows below:
+# # # #
+# # # # jupyter nbconvert \
+# # # # 	--to 'html' \
+# # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # 	--FilesWriter.build_directory=../results \
+# # # # 	--execute feature_analysis.ipynb
+# # # # 
+# # # # # The previous version of this file was commented-out and follows below:
+# # # # #
+# # # # # jupyter nbconvert \
+# # # # # 	--to 'html' \
+# # # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # # 	--FilesWriter.build_directory=../results \
+# # # # # 	--execute feature_analysis.ipynb
+# # # # # 
+# # # # # # The previous version of this file was commented-out and follows below:
+# # # # # #
+# # # # # # jupyter nbconvert \
+# # # # # # 	--to 'html' \
+# # # # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # # # 	--FilesWriter.build_directory=../results \
+# # # # # # 	--execute feature_analysis.ipynb
+# # # # # # 
+# # # # # # # The previous version of this file was commented-out and follows below:
+# # # # # # #
+# # # # # # # Rscript delong_test.R "$@"
+# # # # # # # 
+# # # # # # # # The previous version of this file was commented-out and follows below:
+# # # # # # # #
+# # # # # # # # jupyter nbconvert \
+# # # # # # # # 	--to 'html' \
+# # # # # # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # # # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # # # # # 	--FilesWriter.build_directory=../results \
+# # # # # # # # 	--execute 'statistic analysis.ipynb'
+# # # # # # # # 
+# # # # # # # 
+# # # # # # 
+# # # # # 
+# # # # 
+# # # 
+# # 
 # 

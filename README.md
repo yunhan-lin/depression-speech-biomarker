@@ -5,19 +5,24 @@
 ```
 Capsule/
 ├── code/
-│   ├── statistic analysis.ipynb    # Main analysis (Python/Jupyter) - 1.37 MB
-│   ├── delong_test.R               # Statistical comparison (R) - 7.09 KB
-│   ├── run                         # Execution script - 3.63 KB
-│   └── LICENSE                     # License file - 1.04 KB
+│   ├── statistic analysis.ipynb    # Main analysis (Python/Jupyter) 
+│   ├── feature analysis.ipynb      # Feature analysis
+│   ├── delong_test.R               # Statistical comparison (R) 
+│   ├── run                         # Execution script 
+│   └── LICENSE                     # License file 
 │
 └── data/
-    ├── external_dataset.csv        # External validation (44.16 KB)
-    ├── internal_dataset.csv        # Internal validation (77.03 KB)
-    └── Training+Internal.csv       # Training + Internal data (49.82 KB)
+    ├── external_dataset.csv        # External validation 
+    ├── internal_dataset.csv        # Internal validation 
+    ├── Training+Internal.csv       # Training + Internal data 
+    ├── average_feature_rwe.pq      # Rwe feature
+    ├── average_feature_test.pq     # Test feature
+    ├── average_feature_train.pq    # Train feature
+    └── LICENSE                     # License file 
 ```
 
-**Total code size**: 1.39 MB  
-**Total data size**: 171.02 KB
+**Total code size**: 2.84 MB  
+**Total data size**: 71.24 MB
 
 ---
 
@@ -33,24 +38,23 @@ Capsule/
 
 ##  Data Files
 
-### 1. external_dataset.csv (44.16 KB)
+### 1. external_dataset.csv
 - **Purpose**: External validation dataset
 - **Usage**: Model performance evaluation on independent test set
 - **Key columns**: `target_label`, `whisper_all_score`, `hubert_score`, `wavlm_score`, etc.
 
-### 2. internal_dataset.csv (77.03 KB)
+### 2. internal_dataset.csv 
 - **Purpose**: Internal validation dataset  
 - **Usage**: Model performance evaluation on held-out validation set
 - **Key columns**: Same as external dataset, plus duration-based scores
 
-### 3. Training+Internal.csv (49.82 KB)
+### 3. Training+Internal.csv 
 - **Purpose**: Combined training and internal validation data
 - **Usage**: Additional analyses (demographic baseline, subgroup analysis)
 - **Key columns**: demographics
 
 ### Data Structure
-
-All datasets contain:
+All datasets of 1-3 data file contain:
 - **Labels**: `target_label` (0=healthy, 1=depressed)
 - **Predictions**: 
   - `whisper_all_score/label`: All 13 questions
@@ -60,9 +64,13 @@ All datasets contain:
   - `hubert_score/predict_label`: HuBERT model
   - `wavlm_score/predict_label`: WavLM model
 - **Duration-based**: `duration20/40/80/120/240_score/label`
-- **Demographics**: `gender`, `age`, `speaker_id`，ect.
+- **Demographics**: `gender`, `age`, `speaker_id`, ect.
 - **Clinical**: `HAMD17`, `HAMD24`, `HAMA`, `SDS`, `PHQ`
 
+### 4. average_feature_rwe/test/train.csv 
+- **Purpose**: Feature values of training, internal and external validation data
+- **Usage**: Features analyses 
+- **Key columns**: Value of 6373 features 
 ---
 
 ##  Code Files
@@ -73,27 +81,27 @@ All datasets contain:
 
 #### Analyses Included:
 
-**A. ROC Curve Analysis** (Manuscript Figure 2)
+**A. ROC Curve Analysis** (Manuscript Figure 3c)
 - ROC curves for all model variants
 - Comparison: Internal vs External validation
 - Metrics: AUC, Sensitivity, Specificity (with 95% CI)
-- Output: `results/roc_curves/*.png`
+- Output: `results/Figure 3c/*.png`
 
-**B. Performance Metrics** (Manuscript Table 2)
+**B. Performance Metrics** 
 - AUC with confidence intervals (Bootstrap, 1000 iterations)
 - Sensitivity/Specificity with CIs (Normal approximation)
 - Output: `results/metrics/model_performance_metrics.csv`
 
-**C. Duration-based Performance** (Manuscript Figure 3)
+**C. Duration-based Performance** (Manuscript Figure 3a)
 - Performance across audio durations (20s, 40s, 80s, 120s, 240s)
 - Internal and external validation plots
-- Output: `results/duration/*.png`
+- Output: `results/Figure 3a/*.png`
 
-**D. Fairness Analysis** (Manuscript Figure 4, Table 3)
+**D. Fairness Analysis** (Manuscript Figure 4a)
 - Subgroup analysis by gender and age
 - F1-score, Disparity Ratio
 - Statistical tests: Chi-square, Kruskal-Wallis
-- Output: `results/fairness/subgroup_fairness.png`, `fairness_results.csv`
+- Output: `results/Figure 4a.png`, `fairness_results.csv`
 
 **E. Scatter Plot Analysis** (Manuscript Figure 5)
 - Correlation: Clinical scales (HAMD17, HAMA, SDS) vs prediction scores
@@ -111,7 +119,23 @@ All datasets contain:
 
 ---
 
-### 2. delong_test.R - R Script
+### 1. feature analysis.ipynb - Python/Jupyter Notebook
+
+**Main analysis notebook containing all feature analyses and visualizations.**
+
+#### Analyses Included:
+
+**A. Scatter plots** (Manuscript Figure 2a & 2b & 2c)
+- Scatter plots for feature affacted by emotion, gender and age
+- Output: `results/Figure 2a & 2b & 2c/*.png`
+
+
+**Expected runtime**: ~5-15 minutes  
+**Dependencies**: pandas, numpy, scipy, os, matplotlib, seaborn
+
+---
+
+### 3. delong_test.R - R Script
 
 **Statistical comparison of ROC curves using DeLong test.**
 
@@ -149,14 +173,14 @@ Rscript code/delong_test.R
 
 | Manuscript Element | Code Location | Output File |
 |--------------------|---------------|-------------|
-| **Figure 2** - ROC Curves | `statistic analysis.ipynb` → Section "ROC Analysis" | `results/roc_curves/*.png` |
-| **Figure 3** - Duration Performance | `statistic analysis.ipynb` → Section "Duration Analysis" | `results/duration/*.png` |
-| **Figure 4** - Fairness Analysis | `statistic analysis.ipynb` → Section "Fairness" | `results/fairness/subgroup_fairness.png` |
-| **Figure 5** - Scatter Plots | `statistic analysis.ipynb` → Section "Scatter Analysis" | `results/scatter/*.png` |
-| **Extra Table 2** - Performance Metrics | `statistic analysis.ipynb` → Section "Metrics with CI" | `results/metrics/model_performance_metrics.csv` |
-| **Extra Table 3** - Fairness Metrics | `statistic analysis.ipynb` → Section "Fairness" | `results/fairness/fairness_results.csv` |
-| **Extra Table 4** - DeLong Tests | `delong_test.R` | Console output |
-| **Supplementary Note** | `statistic analysis.ipynb` | Various CSV files in `results/` |
+| ROC Curves | `statistic analysis.ipynb` → Section "ROC Analysis" | `results/roc_curves/*.png` |
+| Duration Performance | `statistic analysis.ipynb` → Section "Duration Analysis" | `results/duration/*.png` |
+| Fairness Analysis | `statistic analysis.ipynb` → Section "Fairness" | `results/fairness/subgroup_fairness.png` |
+| Scatter Plots | `statistic analysis.ipynb` → Section "Scatter Analysis" | `results/scatter/*.png` |
+| Performance Metrics | `statistic analysis.ipynb` → Section "Metrics with CI" | `results/metrics/model_performance_metrics.csv` |
+| Fairness Metrics | `statistic analysis.ipynb` → Section "Fairness" | `results/fairness/fairness_results.csv` |
+| DeLong Tests | `delong_test.R` | Console output |
+| Supplementary Note | `statistic analysis.ipynb` | Various CSV files in `results/` |
 
 ---
 
