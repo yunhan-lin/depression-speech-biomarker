@@ -16,7 +16,7 @@ jupyter nbconvert \
 # 	--ExecutePreprocessor.allow_errors=True \
 # 	--ExecutePreprocessor.timeout=-1 \
 # 	--FilesWriter.build_directory=../results \
-# 	--execute 'statistic analysis.ipynb'
+# 	--execute feature_analysis.ipynb
 # 
 # # The previous version of this file was commented-out and follows below:
 # #
@@ -34,7 +34,7 @@ jupyter nbconvert \
 # # # 	--ExecutePreprocessor.allow_errors=True \
 # # # 	--ExecutePreprocessor.timeout=-1 \
 # # # 	--FilesWriter.build_directory=../results \
-# # # 	--execute feature_analysis.ipynb
+# # # 	--execute 'statistic analysis.ipynb'
 # # # 
 # # # # The previous version of this file was commented-out and follows below:
 # # # #
@@ -74,7 +74,12 @@ jupyter nbconvert \
 # # # # # # # 
 # # # # # # # # The previous version of this file was commented-out and follows below:
 # # # # # # # #
-# # # # # # # # Rscript delong_test.R "$@"
+# # # # # # # # jupyter nbconvert \
+# # # # # # # # 	--to 'html' \
+# # # # # # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # # # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # # # # # 	--FilesWriter.build_directory=../results \
+# # # # # # # # 	--execute feature_analysis.ipynb
 # # # # # # # # 
 # # # # # # # # # The previous version of this file was commented-out and follows below:
 # # # # # # # # #
@@ -83,7 +88,22 @@ jupyter nbconvert \
 # # # # # # # # # 	--ExecutePreprocessor.allow_errors=True \
 # # # # # # # # # 	--ExecutePreprocessor.timeout=-1 \
 # # # # # # # # # 	--FilesWriter.build_directory=../results \
-# # # # # # # # # 	--execute 'statistic analysis.ipynb'
+# # # # # # # # # 	--execute feature_analysis.ipynb
+# # # # # # # # # 
+# # # # # # # # # # The previous version of this file was commented-out and follows below:
+# # # # # # # # # #
+# # # # # # # # # # Rscript delong_test.R "$@"
+# # # # # # # # # # 
+# # # # # # # # # # # The previous version of this file was commented-out and follows below:
+# # # # # # # # # # #
+# # # # # # # # # # # jupyter nbconvert \
+# # # # # # # # # # # 	--to 'html' \
+# # # # # # # # # # # 	--ExecutePreprocessor.allow_errors=True \
+# # # # # # # # # # # 	--ExecutePreprocessor.timeout=-1 \
+# # # # # # # # # # # 	--FilesWriter.build_directory=../results \
+# # # # # # # # # # # 	--execute 'statistic analysis.ipynb'
+# # # # # # # # # # # 
+# # # # # # # # # # 
 # # # # # # # # # 
 # # # # # # # # 
 # # # # # # # 
